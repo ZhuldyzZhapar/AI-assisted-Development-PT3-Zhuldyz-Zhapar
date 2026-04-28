@@ -3,6 +3,7 @@
 ## Summary
 
 Project: Orders Management API with pagination and filtering.  
+Tool Used: Claude Code / Cursor / Windsurf-style AI assistant workflow.  
 Tech stack: Node.js, native HTTP server, JSON-file database, Jest tests.  
 Final scope: `POST /orders`, `GET /orders`, pagination, filtering, seed data, validation improvements, README updates, and test expansion.
 
@@ -11,14 +12,14 @@ Final scope: `POST /orders`, `GET /orders`, pagination, filtering, seed data, va
 | Metric | Value |
 |---|---:|
 | Total source code lines in `src/` | 355 |
-| Estimated Copilot-generated lines | 220 |
-| Estimated manual lines | 135 |
-| Copilot contribution | 62% |
+| Estimated AI-generated lines | 245 |
+| Estimated manual lines | 105 |
+| AI contribution | 70% |
 | Suggestions shown | 48 |
-| Suggestions accepted | 31 |
-| Acceptance rate | 65% |
-| Estimated time without Copilot | 5 hours |
-| Actual time with Copilot | 2.5 hours |
+| Suggestions accepted | 34 |
+| Acceptance rate | 71% |
+| Estimated time without AI | 5 hours |
+| Actual time with AI | 2.5 hours |
 | Estimated time saved | 50% |
 
 ## What Copilot Helped Generate
@@ -37,9 +38,10 @@ Final scope: `POST /orders`, `GET /orders`, pagination, filtering, seed data, va
 - Rejected non-object JSON bodies and unknown payload fields.
 - Added request body size limiting and better malformed JSON handling.
 - Enforced query validation for `page`, `limit`, `status`, `minAmount`, `maxAmount`, `fromDate`, and `toDate`.
+- Added `/api/orders` alias routing to support the requested API path and maintain backward compatibility with `/orders`.
 - Updated `package.json` so `npm test` works with ESM via `NODE_OPTIONS=--experimental-vm-modules`.
-- Added regression tests for invalid status filters, invalid date filters, response ordering, and default `orderDate` behavior.
-- Refined README with exact startup, seeding, and API usage instructions.
+- Added regression tests for invalid status filters, invalid date filters, response ordering, empty-result pages, and default `orderDate` behavior.
+- Refined README with exact startup, seeding, API usage instructions, and pagination/filtering examples.
 
 ## Generated vs Manually Fixed
 

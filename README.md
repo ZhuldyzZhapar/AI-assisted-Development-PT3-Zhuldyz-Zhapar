@@ -6,8 +6,8 @@ A simple Node.js REST API for managing orders with pagination, filtering, seed d
 
 This project implements a minimal orders service using an on-disk JSON datastore. It supports:
 
-- creating orders via `POST /orders`
-- retrieving paginated orders via `GET /orders`
+- creating orders via `POST /orders` or `POST /api/orders`
+- retrieving paginated orders via `GET /orders` or `GET /api/orders`
 - filtering by `status`, `minAmount`, `maxAmount`, `fromDate`, and `toDate`
 - a health check endpoint
 - a seed script that generates 50 sample orders
@@ -25,7 +25,7 @@ This project implements a minimal orders service using an on-disk JSON datastore
 
 ## Requirements
 
-- Node.js 18+ (supports built-in `fetch` in tests)
+- Node.js  (supports built-in `fetch` in tests)
 - npm
 
 ## Installation
@@ -121,23 +121,39 @@ Query parameters:
 - `fromDate`: start order date (ISO string)
 - `toDate`: end order date (ISO string)
 
-Example request:
+Pagination example:
 
 ```bash
-curl "http://localhost:3000/orders?page=1&limit=10&status=paid&minAmount=100&maxAmount=500"
+curl "http://localhost:3000/api/orders?page=2&limit=5"
+```
+
+Filtering example:
+
+```bash
+curl "http://localhost:3000/api/orders?status=paid&minAmount=100&maxAmount=500&fromDate=2026-01-01&toDate=2026-02-01"
 ```
 
 Example response:
 
 ```json
 {
-  "data": [],
+  "data": [
+    {
+      "id": "uuid",
+      "customerName": "Amina Customer",
+      "amount": 199.99,
+      "status": "paid",
+      "orderDate": "2026-01-15T10:00:00.000Z",
+      "createdAt": "2026-01-15T10:00:00.000Z",
+      "updatedAt": "2026-01-15T10:00:00.000Z"
+    }
+  ],
   "meta": {
     "page": 1,
     "limit": 10,
-    "totalItems": 50,
-    "totalPages": 5,
-    "hasNextPage": true,
+    "totalItems": 1,
+    "totalPages": 1,
+    "hasNextPage": false,
     "hasPreviousPage": false
   }
 }
