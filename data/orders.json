@@ -1,0 +1,38 @@
+[
+  {
+    "id": "832fd592-827f-44e9-826e-c872e59366aa",
+    "customerName": "Test Customer",
+    "amount": 50,
+    "status": "pending",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-10T00:00:00.000Z"
+  },
+  {
+    "id": "d58fe0a3-c839-4714-862e-95f2bf63ffc5",
+    "customerName": "Test Customer",
+    "amount": 150,
+    "status": "paid",
+    "orderDate": "2026-01-05T00:00:00.000Z",
+    "createdAt": "2026-01-05T00:00:00.000Z",
+    "updatedAt": "2026-01-10T00:00:00.000Z"
+  },
+  {
+    "id": "1e41be90-2d93-4d44-bf4e-0e8f3641a4c4",
+    "customerName": "Test Customer",
+    "amount": 250,
+    "status": "shipped",
+    "orderDate": "2026-01-10T00:00:00.000Z",
+    "createdAt": "2026-01-10T00:00:00.000Z",
+    "updatedAt": "2026-01-10T00:00:00.000Z"
+  },
+  {
+    "id": "d3e0e70a-eaf7-40ae-9f7f-72d59b2c810f",
+    "customerName": "Test Customer",
+    "amount": 350,
+    "status": "cancelled",
+    "orderDate": "2026-01-15T00:00:00.000Z",
+    "createdAt": "2026-01-15T00:00:00.000Z",
+    "updatedAt": "2026-01-10T00:00:00.000Z"
+  }
+]
