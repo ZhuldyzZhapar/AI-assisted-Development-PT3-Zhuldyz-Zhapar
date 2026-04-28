@@ -117,6 +117,21 @@ test('GET /orders page 2 returns next slice', async () => {
   expect(res.body.meta.hasPreviousPage).toBe(true);
 });
 
+test('GET /orders page beyond total returns empty results', async () => {
+  const res = await request('/orders?page=5&limit=2');
+  expect(res.status).toBe(200);
+  expect(res.body.data).toHaveLength(0);
+  expect(res.body.meta.totalPages).toBe(2);
+  expect(res.body.meta.hasNextPage).toBe(false);
+});
+
+test('GET /api/orders returns paginated results using alias route', async () => {
+  const res = await request('/api/orders?page=1&limit=2');
+  expect(res.status).toBe(200);
+  expect(res.body.data).toHaveLength(2);
+  expect(res.body.meta.totalItems).toBe(4);
+});
+
 test('GET /orders filters by status', async () => {
   const res = await request('/orders?status=paid');
   expect(res.status).toBe(200);

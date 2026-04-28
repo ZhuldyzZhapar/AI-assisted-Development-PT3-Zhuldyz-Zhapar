@@ -305,11 +305,11 @@ async function handleGetOrders(req, res, url) {
 async function requestListener(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
 
-  if (req.method === 'POST' && url.pathname === '/orders') {
+  if (req.method === 'POST' && (url.pathname === '/orders' || url.pathname === '/api/orders')) {
     return handleCreateOrder(req, res);
   }
 
-  if (req.method === 'GET' && url.pathname === '/orders') {
+  if (req.method === 'GET' && (url.pathname === '/orders' || url.pathname === '/api/orders')) {
     return handleGetOrders(req, res, url);
   }
 
